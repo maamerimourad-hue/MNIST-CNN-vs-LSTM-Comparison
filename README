@@ -41,6 +41,47 @@ model = Sequential([
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 model.save('results/cnn_model.h5')
+start = time.time()
+cnn.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
+cnn_time = time.time() - start
+cnn_acc = cnn.evaluate(x_test, y_test, verbose=0)[1]
+
+
+
 
 ![Resultat_CNN](https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/cnn_resultat.PNG)
+
+
+###Implémentation du LSTM  model sequentiel
+
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+
+
+(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
+
+model = Sequential([
+    LSTM(128, input_shape=(28,28)),
+    Dropout(0.5),
+    Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+model.save('results/lstm_model.h5')
+start = time.time()
+lstm.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
+lstm_time = time.time() - start
+lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
+
+
+results = pd.DataFrame([
+    {"Model": "CNN", "Accuracy": cnn_acc, "Training Time (s)": cnn_time},
+    {"Model": "LSTM", "Accuracy": lstm_acc, "Training Time (s)": lstm_time}
+])
+
+results.to_csv("results/training_times.csv", index=False)
+print("✅ Résultats enregistrés dans results/training_times.csv")
+print(results)
 
