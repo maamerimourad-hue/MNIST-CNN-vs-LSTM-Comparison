@@ -1,7 +1,7 @@
 
 
 ### Prétraitement des données MNIST
-//fonction de  chargement de dataset mnist
+//une fonction de  chargement de dataset mnist et pretratement
 def load_and_preprocess_data(for_lstm=False):
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     x_train, x_test = x_train / 255.0, x_test / 255.0  //normalisation
@@ -20,4 +20,24 @@ def load_and_preprocess_data(for_lstm=False):
 
 
 
-###Implémentation du CNN
+###Implémentation du CNN  model sequentiel
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+
+
+(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
+
+model = Sequential([
+    Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)),
+    MaxPooling2D(2,2),
+    Conv2D(64, (3,3), activation='relu'),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+model.save('results/cnn_model.h5')
