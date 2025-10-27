@@ -41,3 +41,6 @@ model = Sequential([
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 model.save('results/cnn_model.h5')
+
+![Mon logo](https://github.com/utilisateur/nom_du_depot/blob/main/img/mon_logo.png)
+
