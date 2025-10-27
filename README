@@ -42,5 +42,5 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 model.save('results/cnn_model.h5')
 
-![maamerimourad-hue](https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/cnn_resultat.PNG)
+![Resultat_CNN](https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/cnn_resultat.PNG)
 
