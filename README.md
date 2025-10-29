@@ -36,7 +36,7 @@ def load_and_preprocess_data(for_lstm=False):
 
     return (x_train, y_train), (x_test, y_test)
 ```
-## Implémentation des deux architectures 
+## 2) Implémentation des deux architectures 
 pour le code d'implémentation nous somme optés pour les properités suivantes:
 - L’optimiseur contrôle la manière dont les poids du réseau sont ajustés à chaque itération pour réduire l’erreur.
 - Adam = Adaptive Moment Estimation C’est un bon choix par défaut .
