@@ -78,12 +78,12 @@ Cela s’explique par la nature spatiale des images MNIST :
 Le CNN exploite les corrélations locales entre pixels grâce aux filtres de convolution.
 Le LSTM, conçu pour traiter des données séquentielles (textes, séries temporelles), n’est pas naturellement adapté aux images 2D.
 Pour le LSTM, chaque ligne ou pixel est traité comme une séquence, donc il perd de l’information spatiale importante.
-![Resultat_accuracy] (https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/comparaison%20accuracy.PNG)
+![Resultat_accuracy] (comparaison%20accuracy.PNG)
 2. Temps d’entraînement
 Le LSTM est plus lent (207 s) que le CNN (184 s).
 Les LSTM traitent les données séquentiellement, donc ils ne peuvent pas paralléliser aussi efficacement que les convolutions.
 Le CNN utilise des opérations matricielles hautement optimisées.
-
+![Temps d’entraînement](comparaison%20tems%20d'entrainement.PNG)
 ##  Discussion
 Le CNN atteint une meilleure précision car il capture efficacement les motifs spatiaux des images.
 Le LSTM, conçu pour des données séquentielles, reste performant mais moins adapté.
