@@ -89,7 +89,8 @@ lstm_time = time.time() - start
 lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
 ```
 ## Tableau de LSTM:
-![Resultat_CNN](cnn_resultat.PNG)
+![Resultat_LSTM](lstm_resultat.PNG)
+
 ## 3) Interprétation des résultats
  3.1. Précision (Accuracy)
 Le CNN obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
