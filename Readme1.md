@@ -52,7 +52,7 @@ cnn = Sequential([
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 ```
-# Implémentation du CNN:
+## Tableau de CNN:
 ![Resultat_CNN](cnn_resultat.PNG)
 ```
 ### Implémentation du LSTM.
