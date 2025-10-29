@@ -92,8 +92,10 @@ lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
 ![Resultat_LSTM](lstm_resultat.PNG)
 
 ## 3) Interprétation des résultats
-![Resultat_LSTM](lstm_resultat.PNG)
+![Resultat de coùmparaison](tableaux_comparaison.PNG)
+
  3.1. **Précision (Accuracy)**
+ 
 Le **CNN** obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
 Cela s’explique par la nature spatiale des images **MNIST** :
 Le **CNN** exploite les corrélations locales entre pixels grâce aux filtres de convolution.
