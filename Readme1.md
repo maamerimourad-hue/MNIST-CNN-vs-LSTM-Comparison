@@ -69,7 +69,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 ```
 ## Resultats
-![Resultat_accuracy](MNIST-CNN-vs-LSTM-Comparison/comparaison%20accuracy.PNG)
+![Resultat_accuracy](MNIST-CNN-vs-LSTM-Comparison/main/comparaison%20accuracy.PNG)
 
 ## Interprétation des résultats
  1. Précision (Accuracy)
