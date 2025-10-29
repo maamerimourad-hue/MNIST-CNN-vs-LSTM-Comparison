@@ -83,10 +83,6 @@ Le LSTM est plus lent (207 s) que le CNN (184 s).
 Les LSTM traitent les données séquentiellement, donc ils ne peuvent pas paralléliser aussi efficacement que les convolutions.
 Le CNN utilise des opérations matricielles hautement optimisées.
 ![Temps d’entraînement](comparaison%20tems%20d'entrainement.PNG)
-##  Discussion
-Le CNN atteint une meilleure précision car il capture efficacement les motifs spatiaux des images.
-Le LSTM, conçu pour des données séquentielles, reste performant mais moins adapté.
-Interprétation des résultats
 
 ## Discussion 
 
