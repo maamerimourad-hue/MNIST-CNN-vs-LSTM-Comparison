@@ -59,7 +59,7 @@ cnn_acc = cnn.evaluate(x_test, y_test, verbose=0)[1]
 ## Tableau de CNN:
 ![Resultat_CNN](cnn_resultat.PNG)
 
-### 2.2) Implémentation du LSTM.
+## 2.2) Implémentation du LSTM.
 C’est un type particulier de Réseau de Neurones Récurrent (RNN).
 C’est un modèle conçu pour traiter des données séquentielles, c’est-à-dire des données qui ont une dépendance dans le temps ou dans l’ordre (texte, audio, séries temporelles…). Il traite une séquence étape par étape, en gardant une mémoire interne (état caché).
 ```python
