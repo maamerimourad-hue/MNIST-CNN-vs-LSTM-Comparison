@@ -1,5 +1,3 @@
-
-
 ### Prétraitement des données MNIST
 //une fonction de  chargement de dataset mnist et pretratement
 def load_and_preprocess_data(for_lstm=False):
