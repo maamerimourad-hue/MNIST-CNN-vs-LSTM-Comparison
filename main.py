@@ -60,7 +60,7 @@ results = pd.DataFrame([
 ])
 
 results.to_csv("results/training_times.csv", index=False)
-print("✅ Résultats enregistrés dans results/training_times.csv")
+print("Résultats enregistrés dans results/training_times.csv")
 print(results)
 plt.figure(figsize=(6, 4))
 plt.bar(results["Model"], results["Accuracy"], color=['skyblue', 'lightgreen'])
