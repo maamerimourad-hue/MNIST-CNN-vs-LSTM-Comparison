@@ -1,10 +1,10 @@
-#### Installer les dépendances , les bibliotheques tensorflow numpy matplotlib pandas seaborn:
-via l'instruction
-!pip install tensorflow numpy matplotlib pandas seaborn jupyter
+#### Installation des dépendances , les bibliotheques tensorflow numpy matplotlib pandas seaborn:
+via l'instruction: 
+**!pip install tensorflow numpy matplotlib pandas seaborn jupyter**
 ## Objectif
 Notre projet compare deux architectures de réseaux de neurones pour la classification des chiffres manuscrits du dataset **MNIST** :
-- Convolutional Neural Network (CNN)
-- Long Short-Term Memory (LSTM)
+- Convolutional Neural Network **(CNN)**
+- Long Short-Term Memory **(LSTM)**
 
 ## Étapes principales
 1. Prétraitement des données (normalisation, reshape, one-hot encoding)
@@ -12,10 +12,12 @@ Notre projet compare deux architectures de réseaux de neurones pour la classifi
 3. Évaluation et comparaison sur le jeu de test
 4. Visualisation des résultats (accuracy, loss, temps)
 
-### 1)  Prétraitement des données MNIST
+## 1)  Prétraitement des données MNIST
 
 ### Une fonction pour charger le dataset **MNIST** et effectuer le prétraitement.
-
+- Transforme les labels (0 à 9) en vecteurs one-hot de taille 10
+- CNN	(n, 28, 28, 1)	Image 2D + canal pour la convolution
+- STM	(n, 28, 28)	Séquence de 28 lignes de 28 pixels
 
 ```python
 def load_and_preprocess_data(for_lstm=False):
@@ -28,14 +30,19 @@ def load_and_preprocess_data(for_lstm=False):
     else:
         x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
         x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
-    
+   
     y_train = to_categorical(y_train, 10)
     y_test = to_categorical(y_test, 10)
 
     return (x_train, y_train), (x_test, y_test)
 ```
 ## 2.1) Implémentation du CNN:
-C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (comme la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
+C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
+L’optimiseur contrôle la manière dont les poids du réseau sont ajustés à chaque itération pour réduire l’erreur.
+Adam = Adaptive Moment Estimation C’est un bon choix par défaut .
+metrics=['accuracy'] c'est la  métrique d’évaluation on veut suivre pendant l’entraînement.
+accuracy (précision) = proportion de prédictions correctes.
+
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
 
