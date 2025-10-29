@@ -36,12 +36,16 @@ def load_and_preprocess_data(for_lstm=False):
 
     return (x_train, y_train), (x_test, y_test)
 ```
-## 2.1) Implémentation du CNN:
-C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
+## Implémentation des deux architectures 
+pour le code d'implémentation nous somme optés pour les properités suivantes:
 - L’optimiseur contrôle la manière dont les poids du réseau sont ajustés à chaque itération pour réduire l’erreur.
 - Adam = Adaptive Moment Estimation C’est un bon choix par défaut .
 - metrics=['accuracy'] c'est la  métrique d’évaluation on veut suivre pendant l’entraînement.
- -accuracy (précision) = proportion de prédictions correctes.
+ - accuracy (précision) = proportion de prédictions correctes.
+ - Une epoch = le modèle a vu toutes les images une fois (en a pris 5).
+## 2.1) Implémentation du CNN:
+C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
+
 
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
@@ -84,6 +88,8 @@ lstm.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0
 lstm_time = time.time() - start
 lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
 ```
+## Tableau de LSTM:
+![Resultat_CNN](cnn_resultat.PNG)
 ## 3) Interprétation des résultats
  3.1. Précision (Accuracy)
 Le CNN obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
