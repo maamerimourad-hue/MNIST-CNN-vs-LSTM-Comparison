@@ -79,7 +79,10 @@ Le CNN exploite les corrélations locales entre pixels grâce aux filtres de con
 Le LSTM, conçu pour traiter des données séquentielles (textes, séries temporelles), n’est pas naturellement adapté aux images 2D.
 Pour le LSTM, chaque ligne ou pixel est traité comme une séquence, donc il perd de l’information spatiale importante.
 ![Resultat_accuracY](comparaison%20accuracy.PNG)
-2. Temps d’entraînement
+
+## suivant
+2.Temps d’entraînement
+ 
 Le LSTM est plus lent (207 s) que le CNN (184 s).
 Les LSTM traitent les données séquentiellement, donc ils ne peuvent pas paralléliser aussi efficacement que les convolutions.
 Le CNN utilise des opérations matricielles hautement optimisées.
