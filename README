@@ -85,3 +85,31 @@ results.to_csv("results/training_times.csv", index=False)
 print("✅ Résultats enregistrés dans results/training_times.csv")
 print(results)
 
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.layers import  LSTM
+import numpy as np
+import pandas as pd
+import time
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6,4))
+plt.bar(results["Model"], results["Accuracy"], color=['skyblue', 'lightgreen'])
+plt.title("Comparaison de la précision entre CNN et LSTM (MNIST)")
+plt.ylabel("Accuracy")
+plt.ylim(0.95, 1.0)  # pour mieux voir la différence
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+# --- Bar plot : temps d'entraînement ---
+plt.figure(figsize=(6,4))
+plt.bar(results["Model"], results["Training Time (s)"], color=['orange', 'salmon'])
+plt.title("Comparaison du temps d'entraînement entre CNN et LSTM (MNIST)")
+plt.ylabel("Temps (secondes)")
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+plt.savefig("results/accuracy_comparison.png")
+plt.savefig("results/training_time_comparison.png")
+
