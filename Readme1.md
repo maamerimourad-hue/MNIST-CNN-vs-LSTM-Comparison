@@ -69,7 +69,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 ```
 ## Resultats
-![Resultat_accuracy](comparaison%20accuracy.PNG)
+![Resultat_accuracy](MNIST-CNN-vs-LSTM-Comparison/comparaison%20accuracy.PNG)
 
 ## Interprétation des résultats
  1. Précision (Accuracy)
@@ -79,7 +79,7 @@ Le CNN exploite les corrélations locales entre pixels grâce aux filtres de con
 Le LSTM, conçu pour traiter des données séquentielles (textes, séries temporelles), n’est pas naturellement adapté aux images 2D.
 Pour le LSTM, chaque ligne ou pixel est traité comme une séquence, donc il perd de l’information spatiale importante.
 
-![Temps d’entraînement](comparaison%20accuracy.PNG)
+![Accuracy](MNIST-CNN-vs-LSTM-Comparison/comparaison%20accuracy.PNG)
 ## suivant
 2.Temps d’entraînement
  
