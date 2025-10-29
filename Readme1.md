@@ -38,10 +38,10 @@ def load_and_preprocess_data(for_lstm=False):
 ```
 ## 2.1) Implémentation du CNN:
 C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
-L’optimiseur contrôle la manière dont les poids du réseau sont ajustés à chaque itération pour réduire l’erreur.
-Adam = Adaptive Moment Estimation C’est un bon choix par défaut .
-metrics=['accuracy'] c'est la  métrique d’évaluation on veut suivre pendant l’entraînement.
-accuracy (précision) = proportion de prédictions correctes.
+- L’optimiseur contrôle la manière dont les poids du réseau sont ajustés à chaque itération pour réduire l’erreur.
+- Adam = Adaptive Moment Estimation C’est un bon choix par défaut .
+- metrics=['accuracy'] c'est la  métrique d’évaluation on veut suivre pendant l’entraînement.
+ -accuracy (précision) = proportion de prédictions correctes.
 
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
