@@ -1,1 +1,20 @@
+### Prétraitement des données MNIST
 
+##Une fonction pour charger le dataset **MNIST** et effectuer le prétraitement.
+
+```python
+def load_and_preprocess_data(for_lstm=False):
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    x_train, x_test = x_train / 255.0, x_test / 255.0  # normalisation
+    
+    if for_lstm:
+        x_train = x_train.reshape(x_train.shape[0], 28, 28)
+        x_test = x_test.reshape(x_test.shape[0], 28, 28)
+    else:
+        x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+        x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+    
+    y_train = to_categorical(y_train, 10)
+    y_test = to_categorical(y_test, 10)
+
+    return (x_train, y_train), (x_test, y_test)
