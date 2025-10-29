@@ -51,7 +51,7 @@ cnn = Sequential([
 ])
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
-'
+```
 ![Resultat_CNN](https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/cnn_resultat.PNG)
 ```
 ### Implémentation du LSTM.
@@ -68,7 +68,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 ```
 ## Resultats
-https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/comparaison%20accuracy.PNG
+![Resultat_CNN] https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/comparaison%20accuracy.PNG
 
 ## Interprétation des résultats
  1. Précision (Accuracy)
