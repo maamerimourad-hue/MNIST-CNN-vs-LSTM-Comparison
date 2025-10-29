@@ -1,4 +1,4 @@
-#### Installation des dépendances , les bibliotheques tensorflow numpy matplotlib pandas seaborn:
+### Installation des dépendances , les bibliotheques tensorflow numpy matplotlib pandas seaborn:
 via l'instruction: 
 **!pip install tensorflow numpy matplotlib pandas seaborn jupyter**
 ## Objectif
@@ -96,7 +96,7 @@ lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
 
  3.1. **Précision (Accuracy)**
  
-Le **CNN** obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
+Le **CNN** obtient une meilleure précision (99.21 %) que le **LSTM** (98.10 %).
 Cela s’explique par la nature spatiale des images **MNIST** :
 Le **CNN** exploite les corrélations locales entre pixels grâce aux filtres de convolution.
 Le **LSTM**, conçu pour traiter des données séquentielles (textes, séries temporelles), n’est pas naturellement adapté aux images 2D.
@@ -106,7 +106,7 @@ Pour le **LSTM**, chaque ligne ou pixel est traité comme une séquence, donc il
 
 3.2. **Temps d’entraînement**
  
-Le **LSTM** est plus lent (207 s) que le **CNN** (184 s).
+Le **LSTM** est plus lent (183 s) que le **CNN** (124.5 s).
 Les **LSTM** traitent les données séquentiellement, donc ils ne peuvent pas paralléliser aussi efficacement que les convolutions.
 Le **CNN** utilise des opérations matricielles hautement optimisées.
 ![Temps d’entraînement](comparaison%20tems%20d'entrainement.PNG)
