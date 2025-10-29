@@ -16,8 +16,8 @@ Notre projet compare deux architectures de réseaux de neurones pour la classifi
 
 ### Une fonction pour charger le dataset **MNIST** et effectuer le prétraitement.
 
+
 ```python
-'
 def load_and_preprocess_data(for_lstm=False):
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     x_train, x_test = x_train / 255.0, x_test / 255.0  # normalisation
@@ -33,10 +33,12 @@ def load_and_preprocess_data(for_lstm=False):
     y_test = to_categorical(y_test, 10)
 
     return (x_train, y_train), (x_test, y_test)
-'
+```
 ## Implémentation du CNN:
 
+```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
+
 
 cnn = Sequential([
     Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)),
@@ -49,12 +51,12 @@ cnn = Sequential([
 ])
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
-
+'
 ![Resultat_CNN](https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/cnn_resultat.PNG)
-
+```
 ### Implémentation du LSTM.
-
-'(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
+```python
+(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
 
 model = Sequential([
     LSTM(128, input_shape=(28,28)),
@@ -64,7 +66,7 @@ model = Sequential([
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
-'
+```
 ## Resultats
 https://github.com/maamerimourad-hue/MNIST-CNN-vs-LSTM-Comparison/blob/main/comparaison%20accuracy.PNG
 
