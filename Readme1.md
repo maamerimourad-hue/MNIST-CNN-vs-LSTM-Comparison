@@ -1,6 +1,20 @@
+####Installer les dépendances , les bibliotheques tensorflow numpy matplotlib pandas seaborn:
+via l'instruction
+!pip install tensorflow numpy matplotlib pandas seaborn jupyter
+## Objectif
+Notre projet compare deux architectures de réseaux de neurones pour la classification des chiffres manuscrits du dataset **MNIST** :
+- Convolutional Neural Network (CNN)
+- Long Short-Term Memory (LSTM)
+
+## Étapes principales
+1. Prétraitement des données (normalisation, reshape, one-hot encoding)
+2. Entraînement de deux modèles distincts
+3. Évaluation et comparaison sur le jeu de test
+4. Visualisation des résultats (accuracy, loss, temps)
+
 ### Prétraitement des données MNIST
 
-##Une fonction pour charger le dataset **MNIST** et effectuer le prétraitement.
+###Une fonction pour charger le dataset **MNIST** et effectuer le prétraitement.
 
 ```python
 def load_and_preprocess_data(for_lstm=False):
@@ -18,3 +32,34 @@ def load_and_preprocess_data(for_lstm=False):
     y_test = to_categorical(y_test, 10)
 
     return (x_train, y_train), (x_test, y_test)
+##Implémentation du CNN:
+
+```python
+(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
+
+cnn = Sequential([
+    Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)),
+    MaxPooling2D(2,2),
+    Conv2D(64, (3,3), activation='relu'),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+
+
+### Implémentation du LSTM.
+
+```python
+(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
+
+model = Sequential([
+    LSTM(128, input_shape=(28,28)),
+    Dropout(0.5),
+    Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
