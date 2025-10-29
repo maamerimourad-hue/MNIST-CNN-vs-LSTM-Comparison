@@ -65,6 +65,8 @@ model = Sequential([
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 '
+## Resultats
+
 ## Interprétation des résultats
  1. Précision (Accuracy)
 Le CNN obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
@@ -82,3 +84,9 @@ Le CNN utilise des opérations matricielles hautement optimisées.
 Le CNN atteint une meilleure précision car il capture efficacement les motifs spatiaux des images.
 Le LSTM, conçu pour des données séquentielles, reste performant mais moins adapté.
 Interprétation des résultats
+
+Discussion 
+
+Sur le dataset MNIST, le modèle CNN surpasse le modèle LSTM à la fois en précision et en efficacité temporelle. Cela s’explique par la nature des images : les CNN sont spécialement conçus pour capturer les dépendances spatiales locales grâce aux couches de convolution et de pooling, tandis que les LSTM sont destinés à modéliser des séquences temporelles. Ainsi, bien que le LSTM puisse atteindre une précision correcte, il est moins efficace pour ce type de données et demande un temps d’entraînement plus long.
+
+En perspective, le LSTM pourrait être plus intéressant sur des données séquentielles (par ex. reconnaissance de gestes, séries temporelles d’images ou texte manuscrit continu), tandis que le CNN reste la référence pour la classification d’images fixes comme MNIST.
