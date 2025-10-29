@@ -54,7 +54,7 @@ history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test)
 ```
 ## Tableau de CNN:
 ![Resultat_CNN](MNIST-CNN-vs-LSTM-Comparison/cnn_resultat.PNG)
-```
+
 ### Implémentation du LSTM.
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
@@ -69,7 +69,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 ```
 ## Resultats
-![Resultat_accuracy](MNIST-CNN-vs-LSTM-Comparison/main/comparaison%20accuracy.PNG)
+![Resultat_accuracy](comparaison%20accuracy.PNG)
 
 ## Interprétation des résultats
  1. Précision (Accuracy)
@@ -78,8 +78,8 @@ Cela s’explique par la nature spatiale des images MNIST :
 Le CNN exploite les corrélations locales entre pixels grâce aux filtres de convolution.
 Le LSTM, conçu pour traiter des données séquentielles (textes, séries temporelles), n’est pas naturellement adapté aux images 2D.
 Pour le LSTM, chaque ligne ou pixel est traité comme une séquence, donc il perd de l’information spatiale importante.
-![Resultat_accuracY](comparaison%20accuracy.PNG)
 
+![Temps d’entraînement](comparaison%20accuracy.PNG)
 ## suivant
 2.Temps d’entraînement
  
