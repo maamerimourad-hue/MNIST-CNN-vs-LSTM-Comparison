@@ -35,7 +35,7 @@ def load_and_preprocess_data(for_lstm=False):
     return (x_train, y_train), (x_test, y_test)
 ```
 ## 2.1) Implémentation du CNN:
-
+C'est un type de réseau de neurones artificiels spécialisé dans le traitement des images. Il est largement utilisé pour la reconnaissance visuelle (comme la classification d’images).Ce modèle apprend à reconnaître les chiffres manuscrits.Il atteint souvent >99 % d’accuracy sur **MNIST**.L’entraînement est rapide car les images sont petites (28×28).
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
 
@@ -50,11 +50,18 @@ cnn = Sequential([
 ])
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+start = time.time()
+cnn.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
+cnn_time = time.time() - start
+cnn_acc = cnn.evaluate(x_test, y_test, verbose=0)[1]
+
 ```
 ## Tableau de CNN:
 ![Resultat_CNN](cnn_resultat.PNG)
 
 ### 2.2) Implémentation du LSTM.
+C’est un type particulier de Réseau de Neurones Récurrent (RNN).
+C’est un modèle conçu pour traiter des données séquentielles, c’est-à-dire des données qui ont une dépendance dans le temps ou dans l’ordre (texte, audio, séries temporelles…). Il traite une séquence étape par étape, en gardant une mémoire interne (état caché).
 ```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
 
@@ -63,9 +70,12 @@ model = Sequential([
     Dropout(0.5),
     Dense(10, activation='softmax')
 ])
-
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+start = time.time()
+lstm.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
+lstm_time = time.time() - start
+lstm_acc = lstm.evaluate(x_test, y_test, verbose=0)[1]
 ```
 ## 3) Interprétation des résultats
  3.1. Précision (Accuracy)
