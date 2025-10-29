@@ -36,7 +36,6 @@ def load_and_preprocess_data(for_lstm=False):
 '
 ## Implémentation du CNN:
 
-```python
 (x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=False)
 
 cnn = Sequential([
@@ -55,8 +54,7 @@ history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test)
 
 ### Implémentation du LSTM.
 
-```python
-(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
+'(x_train, y_train), (x_test, y_test) = load_and_preprocess_data(for_lstm=True)
 
 model = Sequential([
     LSTM(128, input_shape=(28,28)),
@@ -66,7 +64,7 @@ model = Sequential([
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
-
+'
 ## Interprétation des résultats
  1. Précision (Accuracy)
 Le CNN obtient une meilleure précision (99.19 %) que le LSTM (98.55 %).
