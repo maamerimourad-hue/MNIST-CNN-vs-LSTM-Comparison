@@ -70,7 +70,7 @@ cnn_acc = cnn.evaluate(x_test, y_test, verbose=0)[1]
 ## Tableau de CNN:
 ![Resultat_CNN](cnn_resultat.PNG)
 
-## 2.2) Implémentation du LSTM.
+## 2.2) Implémentation du LSTM:
 C’est un type particulier de Réseau de Neurones Récurrent (RNN).
 C’est un modèle conçu pour traiter des données séquentielles, c’est-à-dire des données qui ont une dépendance dans le temps ou dans l’ordre (texte, audio, séries temporelles…). Il traite une séquence étape par étape, en gardant une mémoire interne (état caché).
 ```python
@@ -111,7 +111,7 @@ Les **LSTM** traitent les données séquentiellement, donc ils ne peuvent pas pa
 Le **CNN** utilise des opérations matricielles hautement optimisées.
 ![Temps d’entraînement](comparaison%20tems%20d'entrainement.PNG)
 
-## Discussion 
+## 4) Discussion 
 
 Sur le dataset **MNIST**, le modèle **CNN** surpasse le modèle **LSTM** à la fois en précision et en efficacité temporelle. Cela s’explique par la nature des images : les **CNN** sont spécialement conçus pour capturer les dépendances spatiales locales grâce aux couches de convolution, tandis que les **LSTM** sont destinés à modéliser des séquences temporelles. Ainsi, bien que le LSTM puisse atteindre une précision correcte, il est moins efficace pour ce type de données et demande un temps d’entraînement plus long.
 En perspective, le **LSTM** pourrait être plus intéressant sur des données séquentielles (par ex. reconnaissance de gestes, séries temporelles d’images ou texte manuscrit continu), tandis que le **CNN** reste la référence pour la classification d’images fixes comme **MNIST**.
