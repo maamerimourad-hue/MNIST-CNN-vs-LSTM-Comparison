@@ -37,7 +37,7 @@ cnn = Sequential([
     Dense(10, activation='softmax')
 ])
 cnn.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 start = time.time()
 cnn.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
 cnn_time = time.time() - start
@@ -49,7 +49,7 @@ lstm = Sequential([
     Dense(10, activation='softmax')
 ])
 lstm.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
 start = time.time()
 lstm.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test), verbose=0)
 lstm_time = time.time() - start
