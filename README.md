@@ -106,12 +106,12 @@ Pour le **LSTM**, chaque ligne ou pixel est traité comme une séquence, donc il
 
 3.2. **Temps d’entraînement**
  
-Le **CNN** est plus lent (183 s) que le **LSTM** (124.5 s). À cause que le **CNN** contient plus de convolutions (qui sont coûteuses en calcul).
-DONC le CNN est plus précis, mais plus lent à entraîner.
+Le **CNN** est plus lent (183 s) que le **LSTM** (124.5 s). À cause que le **CNN** contient plus de convolutions (qui sont coûteuses en calcul), ce qui crée beaucoup de poids à calculer et multiplications matricielles lourdes sur chaque image 2D.
+donc le **CNN** est plus précis, mais plus lent à entraîner.
 
 ![Temps d’entraînement](comparaison%20tems%20d'entrainement.PNG)
 
 ## 4) Discussion 
 
-Sur le dataset **MNIST**, le modèle **CNN** surpasse le modèle **LSTM** à la fois en précision mais plus lent en traitement de données. Cela s’explique par la nature des images : les **CNN** sont spécialement conçus pour capturer les dépendances spatiales locales grâce aux couches de convolution, tandis que les **LSTM** sont destinés à modéliser des séquences temporelles. donc **LSTM** est plus rapide à entraîner, mais donne une précision légèrement inférieure.
+Sur le dataset **MNIST**, le modèle **CNN** surpasse le modèle **LSTM** à la fois en précision et plus lent en traitement de données. Cela s’explique par la nature des images : les **CNN** sont spécialement conçus pour capturer les dépendances spatiales locales grâce aux couches de convolution, tandis que les **LSTM** sont destinés à modéliser des séquences temporelles. donc **LSTM** est plus rapide à entraîner, mais donne une précision légèrement inférieure.
 En perspective, le **LSTM** pourrait être plus intéressant sur des données séquentielles (par ex. reconnaissance de gestes, séries temporelles d’images ou texte manuscrit continu), tandis que le **CNN** reste la référence pour la classification d’images fixes comme **MNIST**.
