@@ -9,8 +9,8 @@ Notre projet compare deux architectures de réseaux de neurones pour la classifi
 ## Étapes principales
 1. Prétraitement des données (normalisation, reshape, one-hot encoding)
 2. Entraînement de deux modèles distincts
-3. Évaluation et comparaison sur le jeu de test
-4. Visualisation des résultats (accuracy, loss, temps)
+3. Évaluation et comparaison sur le jeu de test et Visualisation des résultats
+4. Discussion
 
 ## 1)  Prétraitement des données MNIST
 
